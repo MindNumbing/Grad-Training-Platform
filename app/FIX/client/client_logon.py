@@ -1,24 +1,26 @@
-import sys
 import time
-import quickfix as fix
+import quickfix
 from   qfix_app_BME import Application
 
+isConnected = None
 
 def logon(thisFile):
 
     try:
-        settings = fix.SessionSettings(thisFile)
+        settings = quickfix.SessionSettings(thisFile)
         application = Application()
-        storeFactory = fix.FileStoreFactory(settings)
+        storeFactory = quickfix.FileStoreFactory(settings)
         #logFactory = fix.ScreenLogFactory(settings)
-        logFactory = fix.FileLogFactory(settings)
-        initiator = fix.SocketInitiator(application,
+        logFactory = quickfix.FileLogFactory(settings)
+        initiator = quickfix.SocketInitiator(application,
                                            storeFactory,
                                            settings,
                                            logFactory)
         initiator.start()
         while 1:
             time.sleep(1)
+            global isConnected
+            isConnected = initiator.isLoggedOn()
     except (fix.ConfigError, fix.RuntimeError) as e:
         print(e)
 
