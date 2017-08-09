@@ -22,7 +22,7 @@ class Application (fix.Application):
             header = message.getHeader()
             message.setField(fix.DefaultApplVerID(fix.ApplVerID_FIX42))
             message.setField(fix.EncryptMethod(fix.EncryptMethod_NONE))
-            message.setField(fix.DefaultCstmApplVerID("x20"))
+            message.setField(fix.DefaultCstmApplVerID("T4.0"))
             header.setField(fix.SenderSubID("SID"))
             header.setField(fix.TargetSubID("TID"))
         pass

@@ -1,7 +1,7 @@
 import sys
 import time
 import quickfix as fix
-from   qfix_app import Application
+from   qfix_app_BME import Application
 
 
 try:
@@ -9,7 +9,8 @@ try:
     settings = fix.SessionSettings(thisFile)
     application = Application()
     storeFactory = fix.FileStoreFactory(settings)
-    logFactory = fix.ScreenLogFactory(settings)
+    #logFactory = fix.ScreenLogFactory(settings)
+    logFactory = fix.FileLogFactory(settings)
     initiator = fix.SocketInitiator(application,
                                        storeFactory, 
                                        settings,
