@@ -1,10 +1,10 @@
 from pymongo import MongoClient
 import pymongo
-
+import app.FIX.client.log.convert_log
 
 class Database:
 
-    posts = None
+    logs = None
 
     def __init__(self):
         """Creates database and creates the 'posts' collection"""
@@ -12,7 +12,7 @@ class Database:
 
         db = client["FixDB"]
 
-        Database.posts = db.posts
+        Database.logs = db.logs
 
         #client.drop_database("FixDB")
 
@@ -24,16 +24,16 @@ class Database:
                         "field3": parse_data[2],
                     }
 
-        results = Database.posts.insert_one(add_entry)
+        results = Database.logs.insert_one(add_entry)
 
         return results.inserted_id
 
     def retrieve_log(self, iden):
         """Takes in an object id to return the specific collection entry"""
-        post = Database.posts.find_one({"_id": iden})
-        return post
+        log = Database.logs.find_one({"_id": iden})
+        return log
 
-#def main():
+# def main():
 #     dat = Database()
 #
 #     store = ["blarg", "Blarg", "BLARG"]
@@ -44,4 +44,4 @@ class Database:
 #
 #     print vary["field3"]
 #
-#main()
+# main()
