@@ -1,5 +1,0 @@
-20170809-08:31:12.578 : Created session
-20170809-08:31:12.579 : Connecting to 127.0.0.1 on port 9899
-20170809-08:31:12.583 : Initiated logon request
-20170809-08:31:12.583 : Message 1 Rejected: Invalid tag number:1408
-20170809-08:31:12.583 : Tried to send a reject while not logged on
