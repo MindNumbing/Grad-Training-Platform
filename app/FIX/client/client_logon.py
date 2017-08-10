@@ -22,5 +22,9 @@ def logon(this_file):
             time.sleep(1)
             global isConnected
             isConnected = initiator.isLoggedOn()
-    except (fix.ConfigError, fix.RuntimeError) as e:
+    except (quickfix.ConfigError, quickfix.RuntimeError) as e:
         print(e)
+
+
+
+def logout(this_file):
