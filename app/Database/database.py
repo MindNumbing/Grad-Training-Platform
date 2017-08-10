@@ -1,6 +1,5 @@
 from pymongo import MongoClient
-import pymongo
-import app.FIX.client.log.convert_log
+from  app.FIX.client.log.convert_log import Converter
 
 class Database:
 
@@ -18,15 +17,13 @@ class Database:
 
     def store_log(self, parse_data):
         """Takes parsed data from Fix and stores it in the collection. Returns object id"""
-        add_entry = {
-                        "field1": parse_data[0],
-                        "field2": parse_data[1],
-                        "field3": parse_data[2],
-                    }
+        add_entries = []
+        for l in parse_data:
+            add_entries.append(l)
 
-        results = Database.logs.insert_one(add_entry)
+        result = Database.logs.insert_many(add_entries)
 
-        return results.inserted_id
+        #return result.inserted_ids
 
     def retrieve_log(self, iden):
         """Takes in an object id to return the specific collection entry"""
@@ -36,12 +33,8 @@ class Database:
 # def main():
 #     dat = Database()
 #
-#     store = ["blarg", "Blarg", "BLARG"]
+#     con = Converter()
 #
-#     vary = dat.store_log(store)
-#
-#     vary = dat.retrieve_log(vary)
-#
-#     print vary["field3"]
+#     dat.store_log(con.convert_log('../../quickfix/client/log/FIXT.1.1-DBL-BME.messages.current.log'))
 #
 # main()
