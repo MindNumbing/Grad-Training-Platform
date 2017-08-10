@@ -24,6 +24,9 @@ htmlcov
 #FIX
 *.log
 *.pyc
-
+*.body
+*.header
+*.seqnums
+*.session
 #MongoDB
 

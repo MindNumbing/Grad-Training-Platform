@@ -18,7 +18,15 @@ class Application (fix.Application):
         print "Logout", sessionID
 
     def toAdmin(self, message, sessionID):
+        if message.getHeader().getField(35)=="A":
+            header = message.getHeader()
+            message.setField(fix.DefaultApplVerID(fix.ApplVerID_FIX42))
+            message.setField(fix.EncryptMethod(fix.EncryptMethod_NONE))
+            message.setField(fix.DefaultCstmApplVerID("T4.0"))
+            header.setField(fix.SenderSubID("SID"))
+            header.setField(fix.TargetSubID("TID"))
         pass
+
 
     def fromAdmin(self, message, sessionID):
         pass
