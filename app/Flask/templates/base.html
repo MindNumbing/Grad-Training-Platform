@@ -23,12 +23,16 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url_for('index', filename='index.html')}}">Home</a></li>
+                    <li><a href="{{ url_for('new_order', filename='new_order.html')}}">Create Order</a></li>
                     <li><a href="{{ url_for('orders', filename='orders.html')}}">Order History</a></li>
-                    <li><a href="{{ url_for('access', filename='access.html')}}">Access</a></li>
+                    <li><a href="{{ url_for('access', filename='access.html')}}">Login History</a></li>
                 </ul>
             </div>
         </nav>
-
+        <h4 class="connect_stat">Connection status:
+            <div id="Server Status"></div>
+            <script>connectionStatus();</script>
+        </h4>
 	    <div class="content">
             {% block content %}
             {% endblock %}
