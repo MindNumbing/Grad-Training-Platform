@@ -23,7 +23,10 @@ htmlcov
 
 #FIX
 *.log
-*.pyc
+*.header
+*.body
+*.seqnums
+*.session
 
-#MongoDB
-
+#VIM
+*.swp
