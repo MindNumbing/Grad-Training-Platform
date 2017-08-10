@@ -2,6 +2,7 @@
 class Converter:
 
     def convert_log(self, log):
+        """loops through each line in file, removes whitespace and seperators. Then translates all into dictionary"""
         l = []
         store = []
 
@@ -19,6 +20,8 @@ class Converter:
             for n in c[1:]:
                 tmp_dict[n.split("=")[0]] = n.split("=")[1]
             store.append(tmp_dict)
+
+        return store
 
 
 #con = Converter()
