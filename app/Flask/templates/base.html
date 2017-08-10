@@ -6,16 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta charset="UTF-8">
 
-	    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
-
-        <script src="{{ url_for('static', filename='javascript/jquery-3.1.1.min.js') }}"></script>
+        <!--<script src="{{ url_for('static', filename='javascript/jquery-3.1.1.min.js') }}"></script>
         <script src="{{ url_for('static', filename='javascript/bootstrap.min.js') }}"></script>
-        <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+        <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>-->
 	</head>
 
-    <body>
+    <body class ="body">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -30,9 +29,12 @@
             </div>
         </nav>
         <h4 class="connect_stat">Connection status:{{ connection_status }}
-            <div id="Server Status"></div>
-            <script>connectionStatus();</script>
+            <!--<div id="Server Status"></div>
+            <script>connectionStatus();</script>-->
         </h4>
+
+        <button class="button">Connect</button>
+
 	    <div class="content">
             {% block content %}
             {% endblock %}
