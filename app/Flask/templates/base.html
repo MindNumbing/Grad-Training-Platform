@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <title>{%  block title %}BME Trading Platform{%  endblock %}</title>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta charset="UTF-8">
+
+	    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+        <script src="{{ url_for('static', filename='javascript/jquery-3.1.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='javascript/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='javascript/main.js') }}"></script>
+	</head>
+
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{{ url_for('index', filename='index.html')}}">BME Trading Platform</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="{{ url_for('index', filename='index.html')}}">Home</a></li>
+                    <li><a href="{{ url_for('new_order', filename='new_order.html')}}">Create Order</a></li>
+                    <li><a href="{{ url_for('orders', filename='orders.html')}}">Order History</a></li>
+                    <li><a href="{{ url_for('access', filename='access.html')}}">Login History</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h4 class="connect_stat">Connection status:{{ connection_status }}
+            <div id="Server Status"></div>
+            <script>connectionStatus();</script>
+        </h4>
+	    <div class="content">
+            {% block content %}
+            {% endblock %}
+	    </div>
+    </body>
+</html>
