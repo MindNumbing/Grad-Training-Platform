@@ -10,13 +10,13 @@ def isConnected():
     '''
     if fix_client.isConnected is True:
         print("Quickfix Client is connected")
-        return True
+        return 'Connected'
     elif fix_client.isConnected is False:
         print("Quickfix client is not connected")
-        return False
+        return 'Disconnected'
     elif fix_client.isConnected is None:
         print("Quickfix Client has not been initialized")
-        return None
+        return 'Disconnected'
 
 def connect_client(client_version):
     '''This initiates the logon for the fix client to the BME simulator if it is not already connected
