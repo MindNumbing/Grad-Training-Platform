@@ -35,3 +35,6 @@ def disconnect():
 
 if __name__ == "__main__":
     connect_client('FIXT-1.1')
+    while 1:
+        time.sleep(2)
+        isConnected()
