@@ -1,4 +1,5 @@
 from pymongo import MongoClient
+import pymongo
 
 
 class Database:
@@ -15,32 +16,32 @@ class Database:
 
         #client.drop_database("FixDB")
 
-    def store_connection_status(self, parseData = []):
-        """Takes parsed data from Fix and stores it in the colection. Returns object id"""
+    def store_log(self, parse_data):
+        """Takes parsed data from Fix and stores it in the collection. Returns object id"""
         add_entry = {
-                        "field1": parseData[0],
-                        "field2": parseData[1],
-                        "field3": parseData[2],
+                        "field1": parse_data[0],
+                        "field2": parse_data[1],
+                        "field3": parse_data[2],
                     }
 
         results = Database.posts.insert_one(add_entry)
 
         return results.inserted_id
 
-    def retrieve_connection_status(self, iden):
+    def retrieve_log(self, iden):
         """Takes in an object id to return the specific collection entry"""
         post = Database.posts.find_one({"_id": iden})
         return post
 
-# def main():
+#def main():
 #     dat = Database()
 #
-#     dict = ["blarg", "blarg2", "blarg3"]
+#     store = ["blarg", "Blarg", "BLARG"]
 #
-#     vary = dat.store_connection_status(dict)
+#     vary = dat.store_log(store)
 #
-#     vary = dat.retrieve_connection_status(vary)
+#     vary = dat.retrieve_log(vary)
 #
 #     print vary["field3"]
 #
-# main()
+#main()
