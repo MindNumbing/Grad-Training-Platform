@@ -25,6 +25,7 @@ def connect(config_file):
             global isConnected
             isConnected = initiator.isLoggedOn()
 
+
         initiator.stop()
     except (quickfix.ConfigError, quickfix.RuntimeError) as e:
         print(e)
