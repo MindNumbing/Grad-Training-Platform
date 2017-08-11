@@ -22,7 +22,7 @@ def isConnectedText():
 def  connect_client(client_version):
     if not isConnected():
         if client_version == 'FIXT-1.1':
-            Thread(target=fix_client.connect, args=('client_FIXT11.cfg',)).start()
+            Thread(target=fix_client.connect).start()
 
 
 def disconnect():
