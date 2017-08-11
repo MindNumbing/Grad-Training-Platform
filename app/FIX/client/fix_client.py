@@ -1,15 +1,16 @@
 import time
 import quickfix
 from qfix_app_BME import Application
+import os
 
 isConnected = None
 keep_open = None
 
-def connect(config_file):
+def connect():
     keep_open = True
     
     try:
-        settings = quickfix.SessionSettings(config_file)
+        settings = quickfix.SessionSettings("app/FIX/client/client_FIXT11.cfg")
         application = Application()
         store_factory = quickfix.FileStoreFactory(settings)
         log_factory = quickfix.FileLogFactory(settings)
