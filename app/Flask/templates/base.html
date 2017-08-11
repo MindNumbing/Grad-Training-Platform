@@ -27,7 +27,7 @@
         </nav>
         <h5 class="connect_stat">Connection status:{{ connection_status }}</h5>
 
-        <button class="connect_button" method="POST" href="/fix_connection">Connect</button>
+        <button type="button" onclick="window.location.href='{{ url_for( 'test_connection') }}';">Connect</button>
 
 	    <div class="content">
             {% block content %}
