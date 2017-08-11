@@ -26,16 +26,9 @@ def connect_client(client_version):
     '''
     if not isConnected():
         if client_version == 'FIXT-1.1':
-            Thread(target=fix_client.connect, args=('client_FIXT11.cfg',)).start()
+            Thread(target=fix_client.connect).start()
 
 def disconnect():
     '''This disconnects the fix client from the BME if it is already connected'''
     if isConnected():
         fix_client.disconnect()
-
-if __name__ == "__main__":
-    connect_client('FIXT-1.1')
-    while 1:
-        time.sleep(1)
-        isConnected()
-        
