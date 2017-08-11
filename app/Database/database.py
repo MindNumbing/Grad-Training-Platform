@@ -21,16 +21,18 @@ class Database:
 
     def store_log(self, parse_data):
         """Takes parsed data from Fix and stores it in the collection. Returns object id"""
-        add_entries = []
-        for l in parse_data:
-            add_entries.append(l)
 
-        result = Database.logs.insert_many(add_entries)
+        if parse_data:
+            add_entries = []
+            for l in parse_data:
+                add_entries.append(l)
+
+            result = Database.logs.insert_many(add_entries)
 
         #return result.inserted_ids
 
     def store_fix_tags(self):
-        """Adds all 1139 Fix 5.0 tags and their key to a database for easy access"""
+        """Adds all Fix 5.0 tags and their key to a database for easy access"""
         con = FixConvert()
         add_entries = con.convert_fix()
 
@@ -44,23 +46,27 @@ class Database:
 
     def return_tag_key(self, value):
         """Takes in a tag value, returns tag key"""
-        #doc = Database.tags.find_one()
-        #key = list(doc.keys[list(doc.values).index(value)])
-        #print key
+        doc = Database.tags.find_one()
+        key = [k for k, v in doc.iteritems() if v == value][0]
+        print key
 
 
-    def retrieve_log(self, iden):
-        """Takes in an object id to return the specific collection entry"""
-        log = Database.logs.find_one({"_id": iden})
-        return log
+    def retrieve_log(self):
+        """Returns all documents in the "logs" collection"""
+        log = Database.logs.find({})
 
-def main():
-    dat = Database()
+        for l in log:
+            print l
 
-    dat.return_tag_key("BeginString")
-
-    #con = Converter()
-
-    #dat.store_log(con.convert_log('../../quickfix/client/log/FIXT.1.1-DBL-BME.messages.current.log'))
-
-main()
+# def main():
+#     dat = Database()
+#
+#     dat.return_tag_key("BeginString")
+#
+#     con = Converter()
+#
+#     dat.store_log(con.convert_log('../../quickfix/client/log/FIXT.1.1-DBL-BME.messages.current.log'))
+#
+#     dat.retrieve_log()
+#
+# main()
