@@ -1,5 +1,9 @@
 import time
+<<<<<<< HEAD
 import fix_connection_test as fix_client
+=======
+import fix_client as fix_client
+>>>>>>> c37c62f9d4dac969f0543dbab8016541ff30e7d6
 from threading import Thread
 
 '''
@@ -49,8 +53,11 @@ def disconnect():
     if isConnected():
         fix_client.disconnect()
 
+<<<<<<< HEAD
 if __name__ == "__main__":
     connect_client('FIXT-1.1')
     while 1:
         time.sleep(1)
         isConnected()
+=======
+>>>>>>> c37c62f9d4dac969f0543dbab8016541ff30e7d6

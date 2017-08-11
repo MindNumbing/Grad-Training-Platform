@@ -18,7 +18,23 @@ def isConnected():
         print("Quickfix Client has not been initialized")
         return False
 
+<<<<<<< HEAD
 def connect_client(client_version):
+=======
+def isConnectedText():
+    '''This is a text representation of the connection status
+
+    Returns:
+        connected if the isConnected() returns True
+        disconnected if the isConnected() returns False
+    '''
+    if isConnected() is True:
+        return 'Connected'
+    elif isConnected() is False:
+        return 'Disconnected'
+
+def  connect_client(client_version):
+>>>>>>> c37c62f9d4dac969f0543dbab8016541ff30e7d6
     '''This initiates the logon for the fix client to the BME simulator if it is not already connected
     
     Args:
@@ -26,9 +42,24 @@ def connect_client(client_version):
     '''
     if not isConnected():
         if client_version == 'FIXT-1.1':
+<<<<<<< HEAD
             Thread(target=fix_client.connect).start()
+=======
+            Thread(target=fix_client.connect, args=('client_FIXT11.cfg',)).start()
+>>>>>>> c37c62f9d4dac969f0543dbab8016541ff30e7d6
 
 def disconnect():
     '''This disconnects the fix client from the BME if it is already connected'''
     if isConnected():
+<<<<<<< HEAD
         fix_client.disconnect()
+=======
+        fix_client.disconnect()
+
+if __name__ == "__main__":
+    connect_client('FIXT-1.1')
+    while 1:
+        time.sleep(1)
+        isConnected()
+        
+>>>>>>> c37c62f9d4dac969f0543dbab8016541ff30e7d6
