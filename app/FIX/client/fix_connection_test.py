@@ -19,7 +19,7 @@ def isConnectedText():
     elif isConnected() is False:
         return 'Disconnected'
 
-def  connect_client(client_version):
+def connect_client(client_version):
     if not isConnected():
         if client_version == 'FIXT-1.1':
             Thread(target=fix_client.connect).start()
