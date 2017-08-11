@@ -1,5 +1,5 @@
 import time
-import fix_client_test as fix_client
+import fix_client
 from threading import Thread
 
 def isConnected():
@@ -10,13 +10,13 @@ def isConnected():
     '''
     if fix_client.isConnected is True:
         print("Quickfix Client is connected")
-        return 'Connected'
+        return True
     elif fix_client.isConnected is False:
         print("Quickfix client is not connected")
-        return 'Disconnected'
+        return False
     elif fix_client.isConnected is None:
         print("Quickfix Client has not been initialized")
-        return 'Disconnected'
+        return False
 
 def connect_client(client_version):
     '''This initiates the logon for the fix client to the BME simulator if it is not already connected
@@ -36,5 +36,6 @@ def disconnect():
 if __name__ == "__main__":
     connect_client('FIXT-1.1')
     while 1:
-        time.sleep(2)
+        time.sleep(1)
         isConnected()
+        
