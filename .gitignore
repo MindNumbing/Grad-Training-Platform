@@ -28,5 +28,8 @@ htmlcov
 *.header
 *.seqnums
 *.session
-#MongoDB
+
+#VIM
+*.swp
+
 

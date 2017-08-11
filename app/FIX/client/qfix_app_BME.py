@@ -34,6 +34,7 @@ class Application (fix.Application):
     def fromApp(self, message, sessionID):
         self.onMessage(message, sessionID)
         # On log in accepted
+
         print "IN", message
 
     def toApp(self, message, sessionID):
