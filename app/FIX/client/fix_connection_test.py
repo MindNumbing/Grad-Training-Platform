@@ -3,11 +3,6 @@ import fix_client
 from threading import Thread
 
 def isConnected():
-    '''This is a check to see whether or not the fix client is connected to the BME simulator
-    
-    Returns:
-        returns a boolean of the connection status (True=Connected, False=Not-Connected) if the client has been initialized or else returns none
-    '''
     if fix_client.isConnected is True:
         print("Quickfix Client is connected")
         return True
@@ -19,29 +14,17 @@ def isConnected():
         return False
 
 def isConnectedText():
-    '''This is a text representation of the connection status
-
-    Returns:
-        connected if the isConnected() returns True
-        disconnected if the isConnected() returns False
-    '''
     if isConnected() is True:
         return 'Connected'
     elif isConnected() is False:
         return 'Disconnected'
 
 def  connect_client(client_version):
-    '''This initiates the logon for the fix client to the BME simulator if it is not already connected
-    
-    Args:
-        client_version:String- This is the fix version that they want to connect to
-    '''
     if not isConnected():
         if client_version == 'FIXT-1.1':
             Thread(target=fix_client.connect, args=('client_FIXT11.cfg',)).start()
 
 def disconnect():
-    '''This disconnects the fix client from the BME if it is already connected'''
     if isConnected():
         fix_client.disconnect()
 
