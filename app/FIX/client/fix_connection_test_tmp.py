@@ -1,5 +1,5 @@
 import time
-import fix_client
+import fix_client_tmp as fix_client
 from threading import Thread
 
 def isConnected():
@@ -24,7 +24,6 @@ def  connect_client(client_version):
         if client_version == 'FIXT-1.1':
             Thread(target=fix_client.connect, args=('client_FIXT11.cfg',)).start()
 
-
 def disconnect():
     if isConnected():
         fix_client.disconnect()
@@ -34,4 +33,4 @@ if __name__ == "__main__":
     while 1:
         time.sleep(1)
         isConnected()
-
+        
