@@ -3,19 +3,18 @@ from app.Flask import app
 from app.FIX.client import fix_connection
 
 
-@app.route('/fix_connection', methods=['POST'])
+@app.route('/fix_connection')
 def test_connection():
     '''This takes the function from fix_connection_test to send a connection to the BME server
         Returns:
             A new index page is requested to show the updated server status
     '''
-    return fix_connection.connect_client('FIXT-1.1')
+    fix_connection.connect_client('FIXT-1.1')
+    return render_template('index.html')
 
-test_connection()
 @app.route('/')
 @app.route('/index')
 def index():
-   #test_connection()
     return render_template('index.html', connection_status=fix_connection.isConnected())
 
 
