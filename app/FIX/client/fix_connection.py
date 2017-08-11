@@ -1,5 +1,5 @@
 import time
-import fix_client_test as fix_client
+import fix_client as fix_client
 from threading import Thread
 
 '''
