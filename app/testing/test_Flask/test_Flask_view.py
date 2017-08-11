@@ -36,7 +36,6 @@ class TestViews(LiveServerTestCase):
         response = urllib2.urlopen(self.get_server_url() + "/access")
         self.assertEqual(response.code, 200)
     # Url tests end here ^^
-
+    # TODO build on this test as more logic is added to the views
 if __name__ == '__main__':
     unittest.main()
-
