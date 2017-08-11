@@ -17,8 +17,6 @@ class Database:
 
         Database.logs = db.logs
 
-        #client.drop_database("FixDB")
-
     def store_log(self, parse_data):
         """Takes parsed data from Fix and stores it in the collection. Returns object id"""
 
@@ -32,7 +30,7 @@ class Database:
         #return result.inserted_ids
 
     def store_fix_tags(self):
-        """Adds all Fix 5.0 tags and their key to a database for easy access"""
+        """Adds all Fix 5.0 tags and their value to a database for easy access"""
         con = FixConvert()
         add_entries = con.convert_fix()
 
@@ -50,23 +48,9 @@ class Database:
         key = [k for k, v in doc.iteritems() if v == value][0]
         print key
 
-
     def retrieve_log(self):
         """Returns all documents in the "logs" collection"""
         log = Database.logs.find({})
 
         for l in log:
             print l
-
-# def main():
-#     dat = Database()
-#
-#     dat.return_tag_key("BeginString")
-#
-#     con = Converter()
-#
-#     dat.store_log(con.convert_log('../../quickfix/client/log/FIXT.1.1-DBL-BME.messages.current.log'))
-#
-#     dat.retrieve_log()
-#
-# main()
