@@ -27,9 +27,9 @@ def isConnected():
 
 def isConnectedText():
     if isConnected() is True:
-        return 'Connected'
+        return ' Connected'
     elif isConnected() is False:
-        return 'Disconnected'
+        return ' Disconnected'
 
 def connect_client(client_version):
     if not isConnected():

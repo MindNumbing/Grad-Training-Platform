@@ -15,19 +15,19 @@ def test_connection():
 @app.route('/')
 @app.route('/index')
 def index():
-    return render_template('index.html', connection_status=fix_connection.isConnected())
+    return render_template('index.html', connection_status=fix_connection.isConnectedText())
 
 
 @app.route('/new_order')
 def new_order():
-    return render_template('new_order.html', connection_status=fix_connection.isConnected())
+    return render_template('new_order.html', connection_status=fix_connection.isConnectedText())
 
 
 @app.route('/orders')
 def orders():
-    return render_template('orders.html', connection_status=fix_connection.isConnected())
+    return render_template('orders.html', connection_status=fix_connection.isConnectedText())
 
 
 @app.route('/access')
 def access():
-    return render_template('access.html', connection_status=fix_connection.isConnected())
+    return render_template('access.html', connection_status=fix_connection.isConnectedText())
