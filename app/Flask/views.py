@@ -1,16 +1,19 @@
 from flask import render_template
 from app.Flask import app
+import time
 from app.FIX.client import fix_connection
 
 
 @app.route('/fix_connection')
 def test_connection():
-    '''This takes the function from fix_connection_test to send a connection to the BME server
-        Returns:
+    '''This takes the function from fix_connection_test to send a connection to the BME server waits 3 seconds to
+        allow connection to complete before refreshing the page
+            Returns:
             A new index page is requested to show the updated server status
     '''
     fix_connection.connect_client('FIXT-1.1')
-    return render_template('index.html')
+    time.sleep(3)
+    return render_template('index.html', connection_status=fix_connection.isConnectedText())
 
 @app.route('/')
 @app.route('/index')
