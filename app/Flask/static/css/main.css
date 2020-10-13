@@ -1,0 +1,12 @@
+.connect_stat{
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    color: gainsboro;
+}
+.connect_button{
+    position:absolute;
+    right: 20px;
+    top:55px;
+}
+

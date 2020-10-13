@@ -23,10 +23,13 @@ htmlcov
 
 #FIX
 *.log
-*.header
+*.pyc
 *.body
+*.header
 *.seqnums
 *.session
 
 #VIM
 *.swp
+
+
